@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>HonestSocial</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="/uploads/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/css/login.css">
+
+</head>
+
+<body>
+
+    <div class="container logo-container">
+        <div class="row">
+            <div class="col-md-12">
+                    <nav class="navbar" id="nav_bar" role="navigation">
+
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle navbar_icon" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span> 
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <h1 class="logo-div">
+                                <a href="/">HonestSocial</a>
+                            </h1>
+                        </div>
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            
+                            <ul class="nav navbar-nav navbar-right">
+                                <li style="padding-right: 50px;">
+                                    <h2 class="reg-div">
+                                        <a href="/home">
+                                            List Bantuan
+                                        </a>
+                                    </h2>
+
+                                </li>
+
+
+                                <li class="reg_link2">
+                                    <h2 class="reg-div">
+                                        <a href="/history">
+                                            History
+                                        </a>
+                                    </h2>
+                                </li>
+                            </ul>
+                        </div>
+
+
+
+
+                    </nav>
+                </div>
+
+        </div>
+    </div>
+
+<div id="main">
+    <div class="main"> 
+        <h1> DETAIL BANTUAN </h1>
+        <div class="table-wrapper">
+            <form action='/help' method='post'>
+                <input type='hidden' name='bantuanId' value='<%= bantuan[0].id %>'>
+                <input type='hidden' name='giverId' value='<%= saldo[0].giver_id %>'>
+                <input type='hidden' name='needed' value='<%= bantuan[0].jumlah_bantuan %>'>
+                <input type='hidden' name='fulfilled' value='<%= bantuan[0].terpenuhi %>'>
+                <table class="table table-hovered" >
+                    <tbody class="help">
+                        <tr><th scope='row' colspan='3'>Info</th></tr>
+                        <tr><td>Nama Asker</td><td>:</td><td><%= bantuan[0].name %></td></tr>
+                        <tr><td>Tanggal Permintaan</td><td>:</td><td><%= bantuan[0].tanggal %></td></tr>
+                        <tr><td>Judul Bantuan</td><td>:</td><td><%= bantuan[0].judul %></td></tr>
+                        <tr><td>Detail Bantuan</td><td>:</td><td><%= bantuan[0].detail %></td></tr>
+                        <tr><td>Bantuan yang dibutuhkan</td><td>:</td><td>Rp. <%= bantuan[0].jumlah_bantuan %></td></tr>
+                        <tr><td>Bantuan terpenuhi</td><td>:</td><td>Rp. <%= bantuan[0].terpenuhi %> dari <%= bantuan[0].giver_count %> orang giver</td></tr>
+
+                        
+                        <tr><th scope='row' colspan='3'>Berikan Bantuan</th></tr>
+                        <tr><td>Saldo saya saat ini</td><td>:</td><td>Rp. <%= saldo[0].total %></td></tr>
+                        <tr><td>Saya ingin membantu asker ini sebesar</td><td>:</td><td>(minimal 100rb)</td></tr>
+                        <tr><td colspan='3' align='center'><input type='number' name = 'helpAmt' size='40'></td></tr>
+                        <tr><td colspan='3' align='center'><input type='submit' value='Berikan Bantuan' style="float: none;"></td></tr>  
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</body>
+</html>
